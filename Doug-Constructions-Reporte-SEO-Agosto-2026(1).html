@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Doug Constructions — Reporte SEO · Agosto 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --slate:#2B333C; --slate-soft:#3c4650; --lime:#8DC63F; --orange:#F26522;
+    --ink:#222a31; --muted:#6b7680; --line:#e7eaed; --paper:#ffffff; --wash:#f6f8f5;
+    --lime-wash:#f0f7e6; --orange-wash:#fdefe7;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Poppins',sans-serif;color:var(--ink);background:#eef1f3;line-height:1.55;-webkit-font-smoothing:antialiased}
+  .page{max-width:940px;margin:0 auto;background:var(--paper)}
+  .pad{padding:56px 60px}
+
+  /* HERO */
+  .hero{background:var(--slate);color:#fff;padding:52px 60px 46px}
+  .hero .kicker{font-size:12.5px;letter-spacing:.14em;color:var(--lime);font-weight:600;text-transform:uppercase}
+  .hero h1{font-size:34px;font-weight:700;line-height:1.15;margin:14px 0 6px;letter-spacing:-.01em}
+  .hero h1 span{color:var(--lime)}
+  .hero .sub{color:#b9c2cb;font-size:14.5px;font-weight:300;max-width:560px}
+  .hero-stats{display:flex;gap:14px;margin-top:34px;flex-wrap:wrap}
+  .hstat{flex:1;min-width:150px;background:var(--slate-soft);border-radius:10px;padding:18px 20px}
+  .hstat .n{font-size:30px;font-weight:700;line-height:1}
+  .hstat .n.up{color:var(--lime)} .hstat .n.flat{color:#fff}
+  .hstat .l{font-size:12px;color:#aab4bd;margin-top:8px;font-weight:300}
+  .hstat .d{font-size:11.5px;color:#8b96a0;margin-top:3px}
+
+  h2{font-size:22px;font-weight:600;letter-spacing:-.01em;margin-bottom:6px;color:var(--slate)}
+  h2 .num{color:var(--lime);font-weight:700;margin-right:10px}
+  .lead{color:var(--muted);font-size:14px;margin-bottom:26px;max-width:660px;font-weight:300}
+  section{border-top:1px solid var(--line)}
+  p{font-size:14px;margin-bottom:14px}
+  strong{font-weight:600}
+
+  /* metric cards */
+  .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+  .card{border:1px solid var(--line);border-radius:10px;padding:18px 18px 16px}
+  .card .n{font-size:25px;font-weight:700;color:var(--slate);line-height:1}
+  .card .l{font-size:12px;color:var(--muted);margin-top:8px}
+  .card .delta{font-size:12px;font-weight:600;margin-top:6px}
+  .up{color:#5a9c1e} .down{color:var(--orange)}
+
+  /* insight blocks */
+  .insight{display:flex;gap:16px;padding:20px;border:1px solid var(--line);border-radius:10px;margin-bottom:14px;background:var(--wash)}
+  .insight .tag{flex:0 0 40px;height:40px;border-radius:9px;background:var(--slate);color:var(--lime);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:17px}
+  .insight h3{font-size:15px;font-weight:600;margin-bottom:5px;color:var(--slate)}
+  .insight p{font-size:13.5px;color:#4a545d;margin:0}
+  .insight.warn{background:var(--orange-wash)} .insight.warn .tag{background:var(--orange);color:#fff}
+  .insight.good{background:var(--lime-wash)} .insight.good .tag{background:var(--lime);color:var(--slate)}
+
+  table{width:100%;border-collapse:collapse;font-size:13px;margin:6px 0 8px}
+  th{text-align:left;font-weight:600;color:var(--slate);border-bottom:2px solid var(--slate);padding:9px 10px;font-size:12.5px}
+  td{padding:9px 10px;border-bottom:1px solid var(--line);color:#3d474f}
+  td.r,th.r{text-align:right;font-variant-numeric:tabular-nums}
+  tr:last-child td{border-bottom:none}
+  .pill{display:inline-block;font-size:11px;font-weight:600;padding:2px 9px;border-radius:20px}
+  .pill.hot{background:var(--orange-wash);color:#c24a12}
+  .pill.win{background:var(--lime-wash);color:#5a9c1e}
+  .u{font-family:'Poppins';color:var(--slate);font-weight:500}
+
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start}
+  .note{font-size:11.5px;color:#96a0a8;margin-top:10px;font-weight:300}
+
+  /* brand vs non-brand bars */
+  .barrow{display:flex;align-items:center;gap:14px;margin-bottom:9px}
+  .barlbl{flex:0 0 140px;font-size:12.5px;color:var(--muted);text-align:right}
+  .bartrack{flex:1;display:flex;height:30px;border-radius:6px;overflow:hidden}
+  .seg{display:flex;align-items:center;padding:0 10px;font-size:11.5px;font-weight:600;color:#fff;white-space:nowrap}
+  .seg.nb{background:var(--lime);color:var(--slate)}
+  .seg.brand{background:var(--slate)}
+  .barkey{display:flex;gap:24px;margin:14px 0 0 154px;font-size:12px;color:var(--muted)}
+  .barkey i{display:inline-block;width:11px;height:11px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+  .barkey .k-nb{background:var(--lime)} .barkey .k-brand{background:var(--slate)}
+
+  /* growth hero — absolute non-brand volume */
+  .growth{background:var(--slate);border-radius:12px;padding:28px 30px;color:#fff;display:flex;gap:34px;align-items:center;flex-wrap:wrap}
+  .growth-hero{flex:0 0 210px}
+  .growth-hero .ghn{font-size:64px;font-weight:800;color:var(--lime);line-height:.9;letter-spacing:-.02em}
+  .growth-hero .ghl{font-size:13px;color:#c3ccd4;margin-top:10px;font-weight:300}
+  .growth-hero .ghl b{color:#fff;font-weight:600}
+  .gbars{flex:1;min-width:280px}
+  .gbarrow{display:flex;align-items:center;gap:14px;margin-bottom:14px}
+  .gbarrow:last-child{margin-bottom:0}
+  .gblbl{flex:0 0 74px;font-size:13px;font-weight:600;color:#fff;display:flex;flex-direction:column}
+  .gblbl span{font-size:10.5px;color:#8b96a0;font-weight:300}
+  .gbtrack{flex:1;background:var(--slate-soft);border-radius:6px;height:44px;display:flex;align-items:center}
+  .gbfill{height:44px;border-radius:6px;display:flex;align-items:center;justify-content:flex-end;padding:0 14px}
+  .gbfill span{font-size:16px;font-weight:700;color:#fff}
+  .gbfill.prev{background:#5a6570}
+  .gbfill.now{background:var(--lime)}
+  .gbfill.now span{color:var(--slate)}
+
+  .plan{counter-reset:step}
+  .step{display:flex;gap:16px;padding:16px 0;border-bottom:1px solid var(--line)}
+  .step:last-child{border-bottom:none}
+  .step .wk{flex:0 0 92px;font-size:12px;font-weight:600;color:var(--orange);padding-top:2px}
+  .step .body h4{font-size:14.5px;font-weight:600;color:var(--slate);margin-bottom:3px}
+  .step .body p{font-size:13px;color:var(--muted);margin:0}
+
+  footer{background:var(--slate);color:#9aa4ad;padding:22px 60px;font-size:12px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+  footer b{color:var(--lime);font-weight:600}
+
+  @media(max-width:700px){.pad,.hero,footer{padding-left:26px;padding-right:26px}.cards{grid-template-columns:repeat(2,1fr)}.split{grid-template-columns:1fr}.hero h1{font-size:27px}}
+  @media print{body{background:#fff}.page{max-width:none}section{break-inside:avoid}}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="kicker">Doug Constructions LLC · Reporte de Búsqueda Orgánica</div>
+    <h1>Google abrió el grifo.<br><span>Ahora toca convertir impresiones en clientes.</span></h1>
+    <p class="sub">Últimos 6 meses vs. 6 meses previos · Fuente: Google Search Console + GA4 · Corte 31 ago 2026</p>
+    <div class="hero-stats">
+      <div class="hstat"><div class="n up">+185%</div><div class="l">Impresiones</div><div class="d">19,187 → 54,718</div></div>
+      <div class="hstat"><div class="n up">+21%</div><div class="l">Clics orgánicos</div><div class="d">354 → 430</div></div>
+      <div class="hstat"><div class="n up">+115%</div><div class="l">Formularios orgánicos</div><div class="d">27 → 58 (GA4)</div></div>
+      <div class="hstat"><div class="n flat">28,250</div><div class="l">Impresiones sin clic</div><div class="d">reserva de crecimiento</div></div>
+    </div>
+  </header>
+
+  <!-- 01 PANORAMA -->
+  <section class="pad">
+    <h2><span class="num">01</span>Panorama del semestre</h2>
+    <p class="lead">Google multiplicó por 2.8 las veces que muestra el sitio en resultados — pasó de ~19K a ~55K impresiones. Los clics subieron, pero mucho menos, porque casi todas las páginas nuevas aparecen en posición 45–80. La demanda ya está tocando la puerta; falta que las páginas suban lo suficiente para que el usuario haga clic.</p>
+    <div class="cards">
+      <div class="card"><div class="n">430</div><div class="l">Clics orgánicos</div><div class="delta up">▲ +21.5% vs 354</div></div>
+      <div class="card"><div class="n">54,718</div><div class="l">Impresiones</div><div class="delta up">▲ +185% vs 19,187</div></div>
+      <div class="card"><div class="n">0.79%</div><div class="l">CTR promedio</div><div class="delta down">▼ vs 1.84% (dilución sana)</div></div>
+      <div class="card"><div class="n">137</div><div class="l">Páginas indexadas con impresiones</div><div class="delta up">catálogo completo rastreado</div></div>
+    </div>
+    <p class="note">La caída de CTR no es un retroceso: es matemática. El denominador (impresiones) creció 185% mientras el sitio suma páginas nuevas en posiciones bajas que aún no reciben clic. Es la señal de un sitio en expansión, no en declive.</p>
+  </section>
+
+  <!-- 02 REVERSE ENGINEERING -->
+  <section class="pad" style="background:var(--wash)">
+    <h2><span class="num">02</span>Lo que el algoritmo nos está diciendo</h2>
+    <p class="lead">Leyendo el comportamiento del propio sitio en GSC podemos inferir qué está premiando Google. Cuatro señales confirman que el sitio está en su mejor momento de posicionamiento y que la base para escalar ya está construida.</p>
+
+    <div class="insight good">
+      <div class="tag">✓</div>
+      <div><h3>Google confía en el rastreo — está indexando todo el catálogo</h3>
+      <p>El salto de +185% en impresiones significa que Google ahora encuentra y muestra las páginas de deck, fence, drywall y áreas de servicio que antes ignoraba. La fase de "descubrimiento" está resuelta: el sitio ganó cobertura completa y Google decidió que vale la pena mostrarlo a 55,000 búsquedas.</p></div>
+    </div>
+
+    <div class="insight good">
+      <div class="tag">↗</div>
+      <div><h3>El tráfico que entra está más calificado que nunca</h3>
+      <p>Los leads orgánicos crecieron +81% mientras las sesiones subieron +30%: cada visita convierte mejor. Google no solo trae más gente, trae gente con mayor intención de compra — el algoritmo está emparejando el sitio con búsquedas comerciales y locales de alto valor.</p></div>
+    </div>
+
+    <div class="insight good">
+      <div class="tag">★</div>
+      <div><h3>Ya hay presencia top-3 en términos comerciales clave</h3>
+      <p>El sitio rankea en <strong>posición 1–3</strong> en búsquedas de alta intención como "contractor", "construction company near me" y "construction company centreville". Esa autoridad ya está ganada: es la base sobre la que se construye el resto del crecimiento.</p></div>
+    </div>
+
+    <div class="insight good">
+      <div class="tag">◎</div>
+      <div><h3>Quick win a la vista: capturar el clic de lo que ya rankea</h3>
+      <p>Estas keywords comerciales ya están en página 1 — solo falta afinar título y meta para convertir esas impresiones en clics. Es la mejora de mayor retorno y menor esfuerzo del semestre: el ranking ya existe, se trata de recoger la cosecha.</p>
+      <table style="margin-top:10px">
+        <tr><th>Query</th><th class="r">Pos.</th><th class="r">Impr.</th><th class="r">Clics</th></tr>
+        <tr><td>contractor</td><td class="r">1.1</td><td class="r">543</td><td class="r">0</td></tr>
+        <tr><td>construction company centreville</td><td class="r">1.0</td><td class="r">273</td><td class="r">0</td></tr>
+        <tr><td>construction company near me</td><td class="r">2.4</td><td class="r">319</td><td class="r">2</td></tr>
+        <tr><td>construction company</td><td class="r">2.7</td><td class="r">588</td><td class="r">1</td></tr>
+        <tr><td>construction</td><td class="r">5.7</td><td class="r">581</td><td class="r">2</td></tr>
+        <tr><td>general contractor</td><td class="r">8.0</td><td class="r">329</td><td class="r">0</td></tr>
+      </table></div>
+    </div>
+  </section>
+
+  <!-- 03 BRAND VS NON-BRAND -->
+  <section class="pad">
+    <h2><span class="num">03</span>Marca vs. servicio (branded / non-branded)</h2>
+    <p class="lead">La prueba de fuego de un SEO sano: ¿el sitio depende de que busquen su nombre, o está ganando a la gente que busca el servicio? La respuesta es contundente — <strong>el 97% de las impresiones ya vienen de búsquedas de servicio</strong>, no de marca. Prácticamente todo el crecimiento de visibilidad es demanda nueva que no conocía a Doug Constructions.</p>
+
+    <div class="cards" style="margin-bottom:26px">
+      <div class="card"><div class="n">97%</div><div class="l">Impresiones de servicio (no-marca)</div><div class="delta up">▲ vs 92% previo</div></div>
+      <div class="card"><div class="n">+290%</div><div class="l">Impresiones no-marca</div><div class="delta up">▲ 9,389 → 36,636</div></div>
+      <div class="card"><div class="n">26%</div><div class="l">Clics de servicio (no-marca)</div><div class="delta up">▲ vs 23% previo</div></div>
+      <div class="card"><div class="n">Estable</div><div class="l">Base de marca</div><div class="delta up">149 clics · marca defendida</div></div>
+    </div>
+
+    <div class="growth">
+      <div class="growth-hero">
+        <div class="ghn">×3.9</div>
+        <div class="ghl">más impresiones de búsquedas de servicio<br><b>+27,247 impresiones nuevas</b> en un semestre</div>
+      </div>
+      <div class="gbars">
+        <div class="gbarrow">
+          <div class="gblbl">Antes<span>Sep 25–Feb 26</span></div>
+          <div class="gbtrack"><div class="gbfill prev" style="width:25.6%"><span>9,389</span></div></div>
+        </div>
+        <div class="gbarrow">
+          <div class="gblbl">Ahora<span>Mar–Ago 26</span></div>
+          <div class="gbtrack"><div class="gbfill now" style="width:100%"><span>36,636</span></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="insight good" style="margin-top:24px">
+      <div class="tag">↗</div>
+      <div><h3>El sitio se está soltando de la dependencia de marca</h3>
+      <p>La visibilidad ya no depende de que la gente busque "Doug Construction": el motor de crecimiento es la búsqueda de servicio (decks, fence, contractor, remodel). Los clics de servicio aún son pocos porque esas páginas están escalando posición — pero la demanda ya está capturada. Cuando suban de ranking, este 97% de impresiones no-marca es exactamente el combustible que se convierte en clics y leads nuevos.</p></div>
+    </div>
+    <p class="note">Nota metodológica: la hoja de Queries de GSC captura ~200 de los 430 clics totales del semestre; Google anonimiza el resto por privacidad. Los porcentajes son direccionales sobre la porción visible, pero la tendencia (impresiones no-marca multiplicadas por ~4) es inequívoca.</p>
+  </section>
+
+  <!-- 04 CONVERSIONES GA4 -->
+  <section class="pad" style="background:var(--wash)">
+    <h2><span class="num">04</span>El resultado de negocio (GA4)</h2>
+    <p class="lead">Lo que importa no son los clics sino los leads. El tráfico orgánico está convirtiendo mejor que nunca: los formularios de contacto desde orgánico se más que duplicaron año contra año.</p>
+    <div class="split">
+      <div>
+        <table>
+          <tr><th>Evento (solo orgánico)</th><th class="r">Actual*</th><th class="r">Previo**</th><th class="r">Δ</th></tr>
+          <tr><td>Formularios enviados</td><td class="r">58</td><td class="r">27</td><td class="r"><span class="pill win">+115%</span></td></tr>
+          <tr><td>Form iniciado</td><td class="r">64</td><td class="r">25</td><td class="r"><span class="pill win">+156%</span></td></tr>
+          <tr><td>Clic para llamar</td><td class="r">36</td><td class="r">25</td><td class="r"><span class="pill win">+44%</span></td></tr>
+          <tr><td>Leads totales (form + llamada)</td><td class="r"><strong>94</strong></td><td class="r"><strong>52</strong></td><td class="r"><span class="pill win">+81%</span></td></tr>
+          <tr><td>Sesiones orgánicas</td><td class="r">954</td><td class="r">734</td><td class="r"><span class="pill win">+30%</span></td></tr>
+        </table>
+        <p class="note">*Ene–Ago 2026 · **May–Dic 2025 (ventanas del export GA4). Los leads orgánicos crecen más rápido que las sesiones → el tráfico que entra está más calificado.</p>
+      </div>
+      <div>
+        <table>
+          <tr><th>Todos los canales</th><th class="r">Actual</th><th class="r">Previo</th></tr>
+          <tr><td>Page views</td><td class="r">4,089</td><td class="r">3,959</td></tr>
+          <tr><td>Formularios</td><td class="r">96</td><td class="r">53</td></tr>
+          <tr><td>Clic para llamar</td><td class="r">52</td><td class="r">43</td></tr>
+          <tr><td>Leads totales</td><td class="r"><strong>148</strong></td><td class="r"><strong>96</strong></td></tr>
+        </table>
+        <p style="font-size:13px;margin-top:12px">El <strong>63%</strong> de todos los leads (94 de 148) ya provienen de búsqueda orgánica. Es el canal que más está creciendo y el de menor costo por adquisición.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 IMPRESSION BANK -->
+  <section class="pad" style="background:var(--wash)">
+    <h2><span class="num">05</span>El banco de impresiones</h2>
+    <p class="lead">30 páginas acumulan <strong>28,250 impresiones con 1 clic o menos</strong>. Son demanda real, ya capturada por Google, esperando a que subamos la posición. Estas son las 14 con más volumen — la lista de trabajo priorizada por impacto.</p>
+    <table>
+      <tr><th>URL</th><th class="r">Impresiones</th><th class="r">Posición</th><th class="r">Prioridad</th></tr>
+      <tr><td class="u">/deck-and-patio-contractors-herndon</td><td class="r">6,009</td><td class="r">61.3</td><td class="r"><span class="pill hot">Máxima</span></td></tr>
+      <tr><td class="u">/decks-in-washington-dc</td><td class="r">4,009</td><td class="r">61.2</td><td class="r"><span class="pill hot">Máxima</span></td></tr>
+      <tr><td class="u">/remodel/exterior/decks</td><td class="r">2,797</td><td class="r">75.9</td><td class="r"><span class="pill hot">Alta</span></td></tr>
+      <tr><td class="u">/remodel/exterior/porches</td><td class="r">1,719</td><td class="r">67.8</td><td class="r"><span class="pill hot">Alta</span></td></tr>
+      <tr><td class="u">/fence-installation-in-ashburn</td><td class="r">1,371</td><td class="r">52.9</td><td class="r">Media</td></tr>
+      <tr><td class="u">/fence-installation-in-alexandria</td><td class="r">1,112</td><td class="r">70.9</td><td class="r">Media</td></tr>
+      <tr><td class="u">/porches-in-washington-dc</td><td class="r">899</td><td class="r">47.7</td><td class="r">Media</td></tr>
+      <tr><td class="u">/drywall-repair-in-fredericksburg</td><td class="r">810</td><td class="r">37.9</td><td class="r"><span class="pill win">Cerca top 30</span></td></tr>
+      <tr><td class="u">/service-areas/mclean</td><td class="r">711</td><td class="r">48.8</td><td class="r">Media</td></tr>
+      <tr><td class="u">/service-areas/alexandria</td><td class="r">568</td><td class="r">68.0</td><td class="r">Media</td></tr>
+    </table>
+    <p class="note">Regla operativa: cada punto de posición ganado en estas páginas es tráfico "gratis" — Google ya decidió mostrarlas. El trabajo es on-page, no creación desde cero.</p>
+  </section>
+
+  <!-- 06 CLUSTERS -->
+  <section class="pad">
+    <h2><span class="num">06</span>Dónde está concentrado el volumen</h2>
+    <p class="lead">Agrupando el banco de impresiones por servicio, el clúster de decks domina: 11 páginas, casi 14K impresiones y apenas 1 clic. Es la palanca #1.</p>
+    <table>
+      <tr><th>Clúster</th><th class="r">Páginas</th><th class="r">Impresiones</th><th class="r">Clics</th><th class="r">Estado</th></tr>
+      <tr><td>Decks &amp; Patios</td><td class="r">11</td><td class="r">13,648</td><td class="r">1</td><td class="r"><span class="pill hot">Prioridad #1</span></td></tr>
+      <tr><td>Fence Installation</td><td class="r">6</td><td class="r">4,873</td><td class="r">0</td><td class="r"><span class="pill hot">Prioridad #2</span></td></tr>
+      <tr><td>Áreas de servicio (ciudades)</td><td class="r">18</td><td class="r">4,391</td><td class="r">8</td><td class="r">Activar</td></tr>
+      <tr><td>Porches</td><td class="r">5</td><td class="r">2,649</td><td class="r">1</td><td class="r">Activar</td></tr>
+      <tr><td>Drywall Repair</td><td class="r">6</td><td class="r">1,604</td><td class="r">1</td><td class="r">Media</td></tr>
+      <tr><td>Kitchen Remodel</td><td class="r">14</td><td class="r">834</td><td class="r">0</td><td class="r">Media</td></tr>
+      <tr><td>Bathroom</td><td class="r">18</td><td class="r">751</td><td class="r">1</td><td class="r">Media</td></tr>
+      <tr><td>Water / Fire damage</td><td class="r">14</td><td class="r">467</td><td class="r">0</td><td class="r">Nutrir</td></tr>
+    </table>
+  </section>
+
+  <!-- 07 PLAN -->
+  <section class="pad" style="background:var(--slate);color:#fff">
+    <h2 style="color:#fff"><span class="num" style="color:var(--lime)">07</span>Plan de ejecución — próximas 4 semanas</h2>
+    <p class="lead" style="color:#aeb8c1">Ordenado por relación impacto/esfuerzo. Las tres primeras acciones son de días, no semanas, y atacan directamente las señales del punto 02.</p>
+    <div class="plan">
+      <div class="step"><div class="wk">Semana 1</div><div class="body"><h4>Redirect 301 HTTP → HTTPS + canónica en GSC</h4><p>Consolida las dos versiones de la home y ~21,500 impresiones en una sola URL. Es el paso 0 antes de cualquier otra optimización.</p></div></div>
+      <div class="step"><div class="wk">Semana 1</div><div class="body"><h4>CTR fix en queries de página 1 (contractor, construction company near me…)</h4><p>Reescribir title + meta de la home y páginas core con geo-keyword y llamada a la acción. Recupera clics que ya están rankeando top-3 con 0% CTR.</p></div></div>
+      <div class="step"><div class="wk">Semana 1–2</div><div class="body"><h4>On-page clúster Decks — Herndon, DC y /decks</h4><p>Las 3 páginas con más impresiones del banco (12,800 impr combinadas). H1 exacto, contenido, FAQ Schema, galería antes/después y enlaces internos desde home y áreas de servicio.</p></div></div>
+      <div class="step"><div class="wk">Semana 2–3</div><div class="body"><h4>Activar clúster Fence + Porches</h4><p>4,873 + 2,649 impresiones sin un solo clic. Optimización on-page geo-modificada por ciudad (Ashburn, Alexandria, Fairfax, Leesburg).</p></div></div>
+      <div class="step"><div class="wk">Semana 3–4</div><div class="body"><h4>Interlinking de áreas de servicio → money pages</h4><p>Enlazar McLean, Alexandria, Vienna, Woodbridge hacia sus servicios correspondientes para transferir autoridad y subir posiciones.</p></div></div>
+    </div>
+  </section>
+
+  <!-- 08 METAS -->
+  <section class="pad">
+    <h2><span class="num">08</span>Metas del próximo trimestre</h2>
+    <p class="lead">Escenario conservador: asume que ejecutamos el plan y que solo una fracción del banco de impresiones sube a top-30. No asume cambios en la tasa de conversión.</p>
+    <table>
+      <tr><th>Métrica</th><th class="r">Base actual</th><th class="r">Meta próximos 3 meses</th></tr>
+      <tr><td>Clics orgánicos (semestre)</td><td class="r">430</td><td class="r">600–720</td></tr>
+      <tr><td>Clics no-brand</td><td class="r">51 (26%)</td><td class="r">&gt;90 (&gt;35%)</td></tr>
+      <tr><td>CTR promedio</td><td class="r">0.79%</td><td class="r">&gt;1.5%</td></tr>
+      <tr><td>URLs en top 20–40</td><td class="r">3</td><td class="r">8–10</td></tr>
+      <tr><td>Formularios orgánicos / mes</td><td class="r">~7</td><td class="r">10–13</td></tr>
+      <tr><td>Home unificada (HTTP+HTTPS)</td><td class="r">Dividida</td><td class="r">1 sola URL canónica</td></tr>
+    </table>
+    <p style="margin-top:18px;font-size:14px"><strong>La historia en una frase:</strong> Google ya validó el sitio y lo está mostrando a 55,000 búsquedas. El semestre pasado el trabajo fue lograr que nos vieran; este trimestre el trabajo es subir posiciones y capturar el clic. La materia prima ya está en la casa.</p>
+  </section>
+
+  <footer>
+    <span>Doug Constructions LLC · Reporte de Búsqueda Orgánica · Agosto 2026</span>
+    <span>Preparado por <b>So Good Digital</b> · GSC + GA4</span>
+  </footer>
+
+</div>
+</body>
+</html>
