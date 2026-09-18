@@ -715,9 +715,6 @@ export default function Home() {
         <span>
           Doug Constructions LLC · Reporte de Búsqueda Orgánica · Agosto 2026
         </span>
-        <span>
-          Preparado por <b>So Good Digital</b> · GSC + GA4
-        </span>
       </footer>
     </main>
   );
