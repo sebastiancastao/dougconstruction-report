@@ -148,7 +148,6 @@ export default function Home() {
                   <th>Query</th>
                   <th className="r">Pos.</th>
                   <th className="r">Impr.</th>
-                  <th className="r">Clics</th>
                 </tr>
               </thead>
               <tbody>
@@ -156,37 +155,31 @@ export default function Home() {
                   <td>contractor</td>
                   <td className="r">1.1</td>
                   <td className="r">543</td>
-                  <td className="r">0</td>
                 </tr>
                 <tr>
                   <td>construction company centreville</td>
                   <td className="r">1.0</td>
                   <td className="r">273</td>
-                  <td className="r">0</td>
                 </tr>
                 <tr>
                   <td>construction company near me</td>
                   <td className="r">2.4</td>
                   <td className="r">319</td>
-                  <td className="r">2</td>
                 </tr>
                 <tr>
                   <td>construction company</td>
                   <td className="r">2.7</td>
                   <td className="r">588</td>
-                  <td className="r">1</td>
                 </tr>
                 <tr>
                   <td>construction</td>
                   <td className="r">5.7</td>
                   <td className="r">581</td>
-                  <td className="r">2</td>
                 </tr>
                 <tr>
                   <td>general contractor</td>
                   <td className="r">8.0</td>
                   <td className="r">329</td>
-                  <td className="r">0</td>
                 </tr>
               </tbody>
             </table>
